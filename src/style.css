@@ -1,0 +1,11 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  background: url(./images/micro_carbon.png);
+  color: #f8f8f8;
+}
