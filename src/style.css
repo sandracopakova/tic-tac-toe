@@ -9,3 +9,23 @@ body {
   background: url(./images/micro_carbon.png);
   color: #f8f8f8;
 }
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 300px;
+}
+
+.square {
+  min-height: 100px;
+  min-width: 100px;
+  border: 1px solid #f8f8f8;
+}
