@@ -37,4 +37,17 @@ body {
   font-size: 2.5rem;
 }
 
-
+#popup {
+  position: fixed;
+  box-shadow: 0 0 0.4rem #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw;
+  padding: 3.2rem;
+  border: 1px solid #f8f8f8;
+  border-radius: 1.6rem;
+  background-color: #f8f8f8;
+  color: #000;
+  transition: 250ms ease-in-out;
+}

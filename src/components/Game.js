@@ -29,7 +29,6 @@ function checkDiagonals(field) {
   for (let x in field) {
     sequence += field[x][x];
   }
-  //doplnit
   if (checkSequence(sequence)) {
     return true;
   }
@@ -56,7 +55,7 @@ function checkWin(field) {
   return false;
 }
 
-export default function Game() {
+export default function Game(props) {
   const [gameField, setGameField] = useState([
     ["", "", ""],
     ["", "", ""],
@@ -69,7 +68,9 @@ export default function Game() {
     const newGameField = [...gameField];
     newGameField[y][x] = player;
     setGameField(newGameField);
-    console.log(checkWin(newGameField));
+    if (checkWin(newGameField)) {
+      props.onGameWin(player)
+    }
     setPlayer(player === "X" ? "O" : "X");
   }
 
