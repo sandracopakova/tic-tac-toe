@@ -64,12 +64,15 @@ export default function Game(props) {
   const [player, setPlayer] = useState("X");
 
   function handleClick([x, y]) {
-    console.log(x, y);
+    //console.log(x, y);
+    if (gameField[y][x] !== "" || props.winner) {
+      return;
+    }
     const newGameField = [...gameField];
     newGameField[y][x] = player;
     setGameField(newGameField);
     if (checkWin(newGameField)) {
-      props.onGameWin(player)
+      props.onGameWin(player);
     }
     setPlayer(player === "X" ? "O" : "X");
   }
@@ -83,6 +86,22 @@ export default function Game(props) {
           });
         })}
       </div>
+      {props.winner && (
+        <button
+          className="newgame-btn"
+          onClick={() => {
+            setGameField([
+              ["", "", ""],
+              ["", "", ""],
+              ["", "", ""],
+            ]);
+            setPlayer("X");
+            props.onGameReset();
+          }}
+        >
+          New Game
+        </button>
+      )}
     </>
   );
 }

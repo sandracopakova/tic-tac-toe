@@ -12,6 +12,10 @@ export default function App() {
         onGameWin={(gameWinner) => {
           setWinner(gameWinner);
         }}
+        onGameReset={() => {
+          setWinner(null);
+        }}
+        winner={winner}
       />
     </div>
   );

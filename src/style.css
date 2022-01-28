@@ -48,6 +48,15 @@ body {
   border: 1px solid #f8f8f8;
   border-radius: 1.6rem;
   background-color: #f8f8f8;
-  color: #000;
+  color: #151515;
   transition: 250ms ease-in-out;
+}
+
+.newgame-btn {
+  padding: 1.13rem;
+  margin: 2rem;
+  font-size: 1.15rem;
+  border-radius: 15px;
+  background-color: #f8f8f8;
+  color: #151515;
 }
