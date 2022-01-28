@@ -56,50 +56,29 @@ function checkWin(field) {
 }
 
 export default function Game(props) {
-  const [gameField, setGameField] = useState([
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ]);
-  const [player, setPlayer] = useState("X");
-
   function handleClick([x, y]) {
     //console.log(x, y);
-    if (gameField[y][x] !== "" || props.winner) {
+    if (props.gameField[y][x] !== "" || props.winner) {
       return;
     }
-    const newGameField = [...gameField];
-    newGameField[y][x] = player;
-    setGameField(newGameField);
+    const newGameField = [...props.gameField];
+    newGameField[y][x] = props.player;
+    props.setGameField(newGameField);
     if (checkWin(newGameField)) {
-      props.onGameWin(player);
+      props.onGameWin(props.player);
     }
-    setPlayer(player === "X" ? "O" : "X");
+    props.setPlayer(props.player === "X" ? "O" : "X");
   }
 
   return (
     <>
       <div className="game-container">
-        {gameField.map((row, y) => {
+        {props.gameField.map((row, y) => {
           return row.map((cell, x) => {
             return <Square key={`${x}${y}`} coords={[x, y]} value={cell} onClick={handleClick} />;
           });
         })}
       </div>
-      <button
-        className={`newgame-btn ${!props.winner ? "hidden" : ""}`}
-        onClick={() => {
-          setGameField([
-            ["", "", ""],
-            ["", "", ""],
-            ["", "", ""],
-          ]);
-          setPlayer("X");
-          props.onGameReset();
-        }}
-      >
-        New Game
-      </button>
     </>
   );
 }
