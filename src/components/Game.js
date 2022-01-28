@@ -86,22 +86,20 @@ export default function Game(props) {
           });
         })}
       </div>
-      {props.winner && (
-        <button
-          className="newgame-btn"
-          onClick={() => {
-            setGameField([
-              ["", "", ""],
-              ["", "", ""],
-              ["", "", ""],
-            ]);
-            setPlayer("X");
-            props.onGameReset();
-          }}
-        >
-          New Game
-        </button>
-      )}
+      <button
+        className={`newgame-btn ${!props.winner ? "hidden" : ""}`}
+        onClick={() => {
+          setGameField([
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+          ]);
+          setPlayer("X");
+          props.onGameReset();
+        }}
+      >
+        New Game
+      </button>
     </>
   );
 }
