@@ -5,7 +5,7 @@ export default function WinReport(props) {
     <>
       {props.winner && (
         <div className="win-container">
-          <div id="popup">{props.winner} is the winner!</div>
+          <div id="popup">{props.winner === "T" ? "It's a tie" : `${props.winner}  is the winner!`} </div>
           <button
             className={`newgame-btn ${!props.winner ? "hidden" : ""}`}
             onClick={props.restartGame}

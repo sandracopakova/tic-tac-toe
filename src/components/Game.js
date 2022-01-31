@@ -56,6 +56,8 @@ function checkWin(field) {
 }
 
 export default function Game(props) {
+  const [count, setCount] = useState(0);
+
   function handleClick([x, y]) {
     //console.log(x, y);
     if (props.gameField[y][x] !== "" || props.winner) {
@@ -68,6 +70,14 @@ export default function Game(props) {
       props.onGameWin(props.player);
     }
     props.setPlayer(props.player === "X" ? "O" : "X");
+    const newCount = count + 1;
+    setCount(newCount);
+
+    if (newCount === 9) {
+      props.onGameWin("T");
+      setCount(0);
+    }
+    console.log(newCount);
   }
 
   return (

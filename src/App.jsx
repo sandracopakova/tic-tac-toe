@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Game from "./components/Game";
 import WinReport from "./components/WinReport";
 
-export default function App() {
+export default function App(props) {
   const [winner, setWinner] = useState(null);
   const [gameField, setGameField] = useState([
     ["", "", ""],
